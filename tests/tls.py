@@ -155,7 +155,7 @@ sslyze(["--starttls=smtp"], 25, MOZILLA_CIPHERS_OLD)
 sslyze(["--starttls=smtp"], 587, MOZILLA_CIPHERS_MODERN)
 
 # HTTPS
-sslyze(["--http_get", "--chrome_sha1", "--hsts"], 443, MOZILLA_CIPHERS_INTERMEDIATE)
+sslyze(["--http_get", "--chrome_sha1", "--hsts"], 8443, MOZILLA_CIPHERS_INTERMEDIATE)
 
 # IMAP
 sslyze([], 993, MOZILLA_CIPHERS_MODERN)
