@@ -39,8 +39,8 @@ def get_services():
 		#{ "name": "Postfix/master", "port": 10587, "public": True, },
 		{ "name": "IMAPS (dovecot)", "port": 993, "public": True, },
 		{ "name": "Mail Filters (Sieve/dovecot)", "port": 4190, "public": True, },
-		{ "name": "HTTP Web (nginx)", "port": 80, "public": True, },
-		{ "name": "HTTPS Web (nginx)", "port": 443, "public": True, },
+		{ "name": "HTTP Web (nginx)", "port": 8080, "public": True, },
+		{ "name": "HTTPS Web (nginx)", "port": 8443, "public": True, },
 	]
 
 def run_checks(rounded_values, env, output, pool, domains_to_check=None):
@@ -152,7 +152,7 @@ def check_service(i, service, env):
 			output.print_error("%s is not running (port %d)." % (service['name'], service['port']))
 
 		# Why is nginx not running?
-		if not running and service["port"] in (80, 443):
+		if not running and service["port"] in (8080, 8443):
 			output.print_line(shell('check_output', ['nginx', '-t'], capture_stderr=True, trap=True)[1].strip())
 
 	else:
