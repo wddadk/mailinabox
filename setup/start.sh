@@ -169,7 +169,7 @@ if management/status_checks.py --check-primary-hostname; then
 	openssl x509 -in $STORAGE_ROOT/ssl/ssl_certificate.pem -noout -fingerprint -sha256\
         	| sed "s/SHA256 Fingerprint=//i"
 else
-	echo https://$PUBLIC_IP/admin
+	echo https://$PUBLIC_IP:8443/admin
 	echo
 	echo You will be alerted that the website has an invalid certificate. Check that
 	echo the certificate fingerprint matches:
